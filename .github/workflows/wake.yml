@@ -2,20 +2,21 @@ name: Wake Streamlit App
 
 on:
   schedule:
-    - cron: "0 */4 * * *"   # every 4 hours
-  workflow_dispatch:         # allow manual trigger
+    - cron: "0 */4 * * *" # 每 4 小時執行一次
+  workflow_dispatch:      # 允許手動觸發
 
 jobs:
   wake:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # 目前最新主要版本，GitHub 官方後續會在此版本直接更新 Node 執行環境
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5 # 目前最新主要版本
         with:
           python-version: "3.10"
+          cache: 'pip' # 建議加入快取，可以加快後續執行速度
 
       - name: Install dependencies
         run: |
