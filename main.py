@@ -54,4 +54,4 @@ def main():
         print("Script finished.")
 
 if __name__ == "__main__":
-    main()
+    main(
